@@ -11,6 +11,7 @@
 		<Using Include="System.ComponentModel.DataAnnotations" />
 		<Using Include="System.ComponentModel.DataAnnotations.Schema" />
 		<Using Include="Microsoft.EntityFrameworkCore" />
+		<Using Include="HotChocolate.Data.Filters" />
 		<Using Include="Demo" />
 		<Using Include="Demo.Data" />
 		<Using Include="Demo.Types" />

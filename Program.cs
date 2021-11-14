@@ -1,11 +1,16 @@
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<DemoContext>();
 
-
-
 builder.Services
     .AddGraphQLServer()
+    .AddConvention<IFilterConvention>(new FilterConvention(x =>
+        x.AddDefaults()))
+    .AddConvention<IFilterConvention>(new FilterConventionExtension(descriptor =>
+    {
+        descriptor.ArgumentName("agarrame_las_bolas");
+    }))
     .AddQueryType<Query>()
     .ConfigureResolverCompiler(c => c.AddService<DemoContext>())
     .AddFiltering()
